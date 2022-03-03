@@ -1,0 +1,19 @@
+name: codecov
+
+on: [push, pull_request]
+
+jobs:
+  code_coverage:
+    runs-on: ubuntu-20.04
+    name: Codecov
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.7
+    - name: Create the docker container and run the tests
+      run: |
+        gxx -coverage -O0 test.c -o test
+        ./test
+        bash <(curl -s https://codecov.io/bash)
