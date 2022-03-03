@@ -16,4 +16,4 @@ jobs:
       run: |
         gcc -coverage -O0 test.c -o test
         ./test
-        bash <(curl -s https://codecov.io/bash)
+        bash <(curl -s https://codecov.io/bash) -t 45b262ec-3917-4473-a22f-2b4b568bb928
